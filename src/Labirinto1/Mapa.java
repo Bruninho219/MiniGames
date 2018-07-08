@@ -2,12 +2,12 @@ package Labirinto1;
 
 class Mapa
 {
-    int[][] geradorMapa(int[][] mat)
+    int[][] geradorMapa(int[][] mat, int x, int y)
     {
         mat=this.baseMapa(mat);
         mat=this.parede(mat);
         mat=this.interior(mat);
-        mat=this.metas(mat);
+        mat=this.metas(mat, x, y);
         return mat;
     }
 
@@ -35,7 +35,7 @@ class Mapa
                 switch(i)
                 {
                     case 1:
-                        if (j == 1 || j == 7 || j == 9 || j == 14 || j == 16 || j == 18)
+                        if (j == 7 || j == 9 || j == 14 || j == 16 || j == 18)
                         {
                             mat[i][j] = 0;
                         }
@@ -87,10 +87,10 @@ class Mapa
         return mat;
     }
 
-    private int[][] metas(int[][] mat)
+    private int[][] metas(int[][] mat, int x, int y)
     {
-        mat[1][1] = 3;
-        mat[8][18] = 4;
+        //mat[1][1] = 3;
+        mat[x][y] = 3;
         return mat;
     }
 
@@ -116,13 +116,16 @@ class Mapa
                 {
                     System.out.print("XX");
                 }
-                if(mat[i][j]==1)
+                else
                 {
-                    System.out.print("  ");
-                }
-                if(mat[i][j]!=0 && mat[i][j]!=1)
-                {
-                    System.out.print("# ");
+                    if(mat[i][j]==1)
+                    {
+                        System.out.print("  ");
+                    }
+                    else
+                    {
+                        System.out.print(" #");
+                    }
                 }
             }
             System.out.println();
@@ -154,7 +157,7 @@ class Mapa
                     }
                     if(mat[i][j]==3)
                     {
-                        System.out.print("? ");
+                        System.out.print(" #");
                     }
                 }
             }
@@ -204,6 +207,6 @@ class Mapa
             System.out.println();
             cont++;
         }
-        System.out.println("|------|   0 -Desistir xD");
+        System.out.println("|------|   0 -Desistir");
     }
 }

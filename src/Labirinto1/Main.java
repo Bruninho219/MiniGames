@@ -12,15 +12,17 @@ public class Main
 
         int mapa[][] = new int[10][20];
 
+        boolean cond;
+        int xFim=8, yFim=18;
         int x=1, y=1;
         int opc;
 
-        mapa=m.geradorMapa(mapa);
+        mapa=m.geradorMapa(mapa, xFim, yFim);
         //m.exibirMapa(mapa);
 
+        System.out.println("Procure pela saída #\n");
         do
         {
-            //Limpar tela
             m.MiniMapa(mapa, x, y);
             do
             {
@@ -34,10 +36,12 @@ public class Main
                 {
                     y=mov.Mov(opc,x, y, mapa);
                 }
+                cond= mov.VerifVitoria(x, y, xFim, yFim);
             }
             while (opc<0&&opc>4);
         }
-        while(opc!=0);
+        while(opc!=0 && !cond);
+
         System.out.println("FIM");
     }
 }

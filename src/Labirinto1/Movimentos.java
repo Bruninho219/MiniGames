@@ -69,4 +69,17 @@ public class Movimentos
             return y-1;
         }
     }
+
+    public boolean VerifVitoria(int x, int y, int xFim, int yFim)
+    {
+        if(x==xFim)
+        {
+            if(y==yFim)
+            {
+                System.out.println("Parabéns :)");
+                return true;
+            }
+        }
+        return false;
+    }
 }
