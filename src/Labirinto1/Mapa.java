@@ -2,20 +2,20 @@ package Labirinto1;
 
 class Mapa
 {
-    int[][] geradorMapa(int[][] mat, int x, int y)
+    int[][] geradorMapa(int[][] mat, int x, int y, int xx, int yy)
     {
         mat=this.baseMapa(mat);
-        mat=this.parede(mat);
+        mat=this.parede(mat, xx, yy);
         mat=this.interior(mat);
         mat=this.metas(mat, x, y);
         return mat;
     }
 
-    private int[][] parede(int[][] mat)
+    private int[][] parede(int[][] mat, int x, int y)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < x; i++)
         {
-            for (int j = 0; j < 20; j++)
+            for (int j = 0; j < y; j++)
             {
                 if(i==0 || i==9 || j==0 || j==19)
                 {
@@ -132,7 +132,7 @@ class Mapa
         }
     }
 
-    public void MiniMapa(int[][] mat, int x, int y)
+    void MiniMapa(int[][] mat, int x, int y)
     {
         int cont=0;
         System.out.println("________   CONTROLE");

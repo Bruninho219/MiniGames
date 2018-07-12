@@ -10,14 +10,15 @@ public class Main
         Mapa m = new Mapa();
         Movimentos mov = new Movimentos();
 
-        int mapa[][] = new int[10][20];
+        int xx=10, yy=20;
+        int mapa[][] = new int[xx][yy];
 
         boolean cond;
         int xFim=8, yFim=18;
         int x=1, y=1;
         int opc;
 
-        mapa=m.geradorMapa(mapa, xFim, yFim);
+        mapa=m.geradorMapa(mapa, xFim, yFim, xx, yy);
         //m.exibirMapa(mapa);
 
         System.out.println("Procure pela saída #\n");
